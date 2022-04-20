@@ -1,0 +1,165 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizz App</title>
+    <style>
+   
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        background-color: rgba(189, 187, 187, 0.144);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+        font-weight: 700px;
+        font-size: 20px;
+    
+    }
+    .qiuz-container{
+        display: grid;
+        box-shadow: 5px 10px rgb(97, 96, 96);
+        border-style: groove;
+        border-width: 3px;
+        padding:30px ;
+        background-image: linear-gradient(to bottom, #d6b9ca, #d1b3ce, #c8aed3, #bbabda, #a9a9e0, #99b0eb, #83b7f3, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+    }
+    li{
+        list-style-type:upper-alpha;
+    }
+    #btn{
+        padding: 7px;
+        border-radius: 25px;
+        background-color: #d16ba5;
+        color:white;
+        border-width: 0px;
+    }
+    #btnext{
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        border-radius: 25px;
+        background-color:#aa8fd8;
+        color:white;
+        border-width: 0px;
+    }
+    h1{
+        font-style: oblique;
+        color: white;
+    }
+    #correct{
+        display: none;
+    }
+</style>
+    <script>
+        var quizData=[
+    {
+    Question:'how old are you',
+    A:'90',
+    B:'90',
+    C:'67',
+    D:'90',
+    Correct:'A',
+    },
+    {
+    Question:'how old are you',
+    A:'10',
+    B:'20',
+    C:'30',
+    D:'40',
+    Correct:'B',
+    },
+        {
+                Question:'which of the these are programming languages',
+                A:'c++',
+                B:'visual studios',
+                C:'spidy',
+                D:'Vmware',
+                Correct:'A',
+    },
+    {
+    Question:'search engine start with',
+    A:'www',
+    B:'http',
+    C:'com',
+    D:'gmail',
+    Correct:'A',
+    },
+    {
+            Question:'search engine start with',
+            A:'www',
+            B:'http',
+            C:'com',
+            D:'gmail',
+            Correct:'B',
+    },
+    {
+Question:'how old are you',
+A:'40',
+B:'50',
+C:'60',
+D:'70',
+Correct:'C',
+},
+
+]
+var currentQuiz=0;
+var currentQuizDat
+var aatext=document.getElementById("atext");
+var bbtext=document.getElementById("btext");
+var cctext=document.getElementById("ctext");
+var ddtext=document.getElementById("dtext");
+var qque=document.getElementById("question");
+var co=document.getElementById("correct")
+
+    var currentQuizData=quizData[currentQuiz];
+    qque.innerText=currentQuizData.Question;
+    aatext.innerText=currentQuizData.A;
+    bbtext.innerHTML=currentQuizData.B;
+    cctext.innerHTML=currentQuizData.C;
+    ddtext.innerHTML=currentQuizData.D
+   
+ console.log(qque.innerText=currentQuizData.Question)
+ var next=document.getElementById("btnext").addEventListener("click" ,function(){
+     currentQuiz++
+     var currentQuizData=quizData[currentQuiz];
+    qque.innerText=currentQuizData.Question;
+    aatext.innerText=currentQuizData.A;
+    bbtext.innerHTML=currentQuizData.B;
+    cctext.innerHTML=currentQuizData.C;
+    ddtext.innerHTML=currentQuizData.D
+    co.style.display="none";
+   
+ })
+ document.getElementById("btn").addEventListener("click",function(){
+     var co=document.getElementById("correct")
+     co.style.display="block";
+     var currentQuizData=quizData[currentQuiz];
+     co.innerHTML=currentQuizData.Correct
+ })
+    </script>
+</head>
+<body>
+    
+    
+    <div class="qiuz-container">
+       <h1>Quiz Question</h1>
+        <div id="question">a</div>
+        <ul>
+            <li><input type="radio" name="answser"><label for="A"><label id="atext"></li>
+            <li><input type="radio" name="answser"><label for="B" id="btext"></label></li>
+            <li><input type="radio" name="answser"><label for="C" id="ctext"></label></li>
+            <li><input type="radio" name="answser"><label for="D" id="dtext"></label></li>
+        </ul>
+        <div class="footer">
+        <button id="btn">Correct</button>
+        <button id="btnext">Next</button>
+        <div id="correct"></div>
+        </div>
+    </div>
+</body>
+</html>
